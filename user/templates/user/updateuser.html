@@ -1,0 +1,25 @@
+{% extends "user/base.html" %}
+{% block title %} Update Django {% endblock title %} 
+{% block content %}
+<h1 class='text-center bg-warning py-4'>
+    Update Form
+</h1>
+<div class="container">
+    <div class="row">
+        <div class="col bg-light">
+            <h4 class='bg-info p-3'>Update User</h3>
+            <form action="" method="POST" id="updateForm" onsubmit="return confirmUpdate()">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class='btn btn-success'>Update</button>
+                <a href="{% url "index" %}" class='btn btn-secondary'>Back Home</a>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    function confirmUpdate() {
+        return confirm('Are you sure you want to update this user?');
+    }
+</script>
+{% endblock content %}
